@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const AppError = require('./utils/AppError');
 const errorHandler = require('./controllers/errorController');
 const userRouter = require('./routes/userRoutes');
+const rentalRouter = require('./routes/rentalRoutes');
 const houseRouter = require('./routes/houseRoutes');
 const apartmentsRouter = require('./routes/apartmentsRoutes');
 
@@ -24,6 +25,7 @@ app.get('/',(req,res)=>{
 
 app.use('/api/v1/apartments',apartmentsRouter);
 app.use('/api/v1/houses',houseRouter);
+app.use('/api/v1/rentals', rentalRouter);
 app.use('/api/v1/users', userRouter);
 
 app.all('*',(req, res, next) =>{
