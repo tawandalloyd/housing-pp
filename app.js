@@ -6,6 +6,7 @@ const userRouter = require('./routes/userRoutes');
 const rentalRouter = require('./routes/rentalRoutes');
 const houseRouter = require('./routes/houseRoutes');
 const apartmentsRouter = require('./routes/apartmentsRoutes');
+const viewRouter = require('./routes/viewRoutes');
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use('/api/v1/apartments',apartmentsRouter);
 app.use('/api/v1/houses',houseRouter);
 app.use('/api/v1/rentals', rentalRouter);
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/views', viewRouter);
 
 app.all('*',(req, res, next) =>{
     next(new AppError(`can't find this ${req.originalUrl} on this server!`,404));
